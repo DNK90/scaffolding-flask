@@ -1,0 +1,55 @@
+{
+  "project_path": "/Users/kiendn/coding/",
+  "app": "blog",
+  "version": "v1",
+  "python_command": ["python3", "pip3"],
+  "db_username": "root",
+  "db_password": "root",
+  "db_name": "sample",
+  "db_host_name": "localhost",
+  "db": [
+    {
+      "table": "post",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "primary_key": true
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "type": "text"
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "foreign_key": "user.id",
+          "nullable": true
+        }
+      ],
+      "relationships": ["user"]
+    },
+    {
+      "table": "user",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "primary_key": true
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "password",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}
