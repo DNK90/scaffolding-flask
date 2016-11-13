@@ -14,7 +14,7 @@ Features include
 
 ####Step 1:Clone the project to your application folder.
 
-    git clone https://<your-git-username>@bitbucket.org/adnets/scaffold.git YourAppFolderName && cd YourAppFolderName
+    git clone https://github.com/<your-git-username>/scaffolding-flask.git
 
 #### Step 2 : Declare your Resource and it's fields in a JSON file as follows
 
