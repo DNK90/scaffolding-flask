@@ -1,4 +1,5 @@
 Inspired from Leo-G's Flask-Scaffold
+
 Flask-Scaffold let's you Prototype Database Driven Admin Dashboards with Python and a MySQL/Mariadb or PostgreSQL
 Database. It will also scaffold a RESTFUL API which can be used with any REST Frontend Framework.
 
