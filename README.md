@@ -78,7 +78,7 @@ Features include
 
 #### Step 4 : Run the Scaffolding  and database migrations script
 
-    python init.py path/to/file.json
+    python flask.py init path/to/file.json
     cd path/to/project
     python db.py db init
     python db.py db migrate
