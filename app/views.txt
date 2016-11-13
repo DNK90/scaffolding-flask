@@ -45,6 +45,10 @@ class CreateList{Resources}(Resource):
                 schema.validate(raw_dict)
                 request_dict = raw_dict['data']['attributes']
                 {resource} = {Resource}({add_fields})
+                
+                for key, value in request_dict.items():                
+                    setattr({resource}, key, value)
+                    
                 {resource}.add({resource}) 
                 #Should not return password hash
                 query = {Resource}.query.get({resource}.id)
