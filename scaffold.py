@@ -360,12 +360,16 @@ def scaffold(file):
             try:
                 relationships = module["relationships"]
                 for relationship in relationships:
+                    relationship_string = """
+    # addition_relationship
+    {} = db.relationship('{}', backref='{}', lazy='dynamic')""".format(resources, resource.title(),relationship)
+                    try:
+                        index, table = find(tables, relationship)
+                        table["sources"][4] += relationship_string
 
-                    index, table = find(tables, relationship)
-                    table["sources"][4] += """
-    {} = db.relationship('{}', backref='{}', lazy='dynamic')""".format(resources, resource.title(), relationship)
-
-                    tables[index] = table
+                        tables[index] = table
+                    except TypeError:
+                        append_relationship(relationship, relationship_string, project_dir)
 
             except KeyError:
                 pass
@@ -404,6 +408,21 @@ def scaffold(file):
 
             except:
                 raise
+
+
+def append_relationship(relationship, relationship_string, project_dir):
+    # Need to have project_dir, app, relationship (plural), models.py
+    string_to_insert_after = "# addition_relationship"
+    element, elements = make_plural(relationship)
+    model_path = os.path.join(project_dir, "app", elements, "models.py")
+    with open(model_path, 'r+') as old_file:
+        file_data = old_file.read()
+        if string_to_insert_after in file_data:
+            # replace the first occurrence
+            new_file_data = file_data.replace(
+                string_to_insert_after, relationship_string, 1)
+            with open(model_path, 'w') as new_file:
+                new_file.write(new_file_data)
 
 
 def find(lists, ref):
