@@ -11,9 +11,10 @@ Features include
 
 ###Installation
 
-####Step 1:Clone the project to your application folder.
+####Step 1: Clone the project to your application folder and install necessary dependencies.
 
     git clone https://github.com/<your-git-username>/scaffolding-flask.git && cd scaffolding-flask
+    pip install -r requirements.txt
 
 #### Step 2 : Declare your Resource and it's fields in a JSON file as follows
 
