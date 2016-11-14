@@ -1,7 +1,6 @@
 Inspired from Leo-G's Flask-Scaffold
 
-Flask-Scaffold let's you Prototype Database Driven Admin Dashboards with Python and a MySQL/Mariadb or PostgreSQL
-Database. It will also scaffold a RESTFUL API which can be used with any REST Frontend Framework.
+Flask-Scaffold let's you scaffold a RESTFUL API which can be used with any REST Frontend Framework.
 
 Features include
 
@@ -14,12 +13,12 @@ Features include
 
 ####Step 1:Clone the project to your application folder.
 
-    git clone https://github.com/<your-git-username>/scaffolding-flask.git
+    git clone https://github.com/<your-git-username>/scaffolding-flask.git && cd scaffolding-flask
 
 #### Step 2 : Declare your Resource and it's fields in a JSON file as follows
 
      {
-      "project_path": "path/to/project/dir",
+      "project_path": "path/to/workspace",
       "app": "blog",
       "version": "v1",
       "python_command": ["python3", "pip3"],
@@ -79,19 +78,14 @@ Features include
 #### Step 4 : Run the Scaffolding  and database migrations script
 
     python flask.py init path/to/file.json
-    cd path/to/project
-    python db.py db init
-    python db.py db migrate
-    python db.py db upgrade
+    cd path/to/workspace/project_name     # In this case: project_name is blog
+    python db.py db init                  # Initialize db version control - create migrates folder
+    python db.py db migrate               # upgrade model's fields to db and create new version
+    python db.py db upgrade               # upgrade new version into db
 
 ####  Step 5 : Run the Server
 
     python run.py
-
-###Examples
-[Freddy a Blogging Engine](https://github.com/Leo-G/Freddy)
-
-[Running Asynchronous commands on Linux with Flask and Celery](https://github.com/Leo-G/Flask-Celery-Linux)
 
 ###Tests
 
@@ -131,7 +125,7 @@ The JSON format follows the spec at jsonapi.org and a sample is available in the
  	{
       "type": "post",
       "attributes": {
-      	"tittle": "test",
+      	"title": "test",
         "body":"this is the body of tested post"
       }   
     }
@@ -145,12 +139,11 @@ https://techarena51.com/index.php/category/flask-framework-tutorials-and-example
 ###Directory Structure
         Project-Folder
             |-- config.py
-            |--run.py
-            |--requirements.txt
+            |-- run.py
+            |-- setup.py
+            |-- requirements.txt
             |-- db.py
-            |__ /scaffold
-            |-- scaffold.py
-            |-- tests.bash    #Tests for all modules
+            |-- tests.bash        #Tests for all modules
             |-- check_styles.bash #Check coding styles based on PEP8
             |__ app/
                 |-- __init__.py
