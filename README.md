@@ -22,7 +22,7 @@ Features include
       "project_path": "path/to/workspace",
       "app": "blog",
       "version": "v1",
-      "python_command": ["python3", "pip3"],
+      "python_command": ["python3", "pip3"],     # Some linux-based platforms use python3, pip3 instead of python and pip
       "db_username": "root",
       "db_password": "root",
       "db_name": "sample",
